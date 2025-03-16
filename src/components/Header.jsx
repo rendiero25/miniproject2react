@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { href, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import LogoNike from "../assets/icons/nikelogo.svg";
 import JordanIcon from '../assets/icons/jordan.svg';
@@ -17,6 +17,8 @@ import MobileMenu from "./MobileMenu";
 const Header = () => {
 
     const navigate = useNavigate();
+    const [searchQuery, setSearchQuery] = useState("");
+    const [showSearchInput, setShowSearchInput] = useState(false);
 
     const navToSiginPage = () => { 
         navigate('/signin'); 
@@ -32,6 +34,10 @@ const Header = () => {
 
     const navToHomePage = () => {
         navigate('/index');
+    }
+
+    const handleSearch = () => {
+        navigate('/dashboard', { state: { searchQuery } });
     }
 
     const navLink = [
@@ -91,13 +97,21 @@ const Header = () => {
                     <Nav linkToNav={navLink}/>
                 </div>
                 <div className="flex flex-row gap-6 w-1/4 justify-end">
-                    <div className="hidden xl:flex flex-row items-center bg-grey rounded-full px-4">
+                    <div className="hidden xl:flex flex-row items-center bg-grey rounded-full pl-4">
                         <div>
                             <FiSearch/>
                         </div>
-                        <input type="search" name="search" placeholder="Search" className="bg-grey px-4 py-2 rounded-full outline-none flex-1" />
+                        <input 
+                            type="search" 
+                            name="search" 
+                            placeholder="Search" 
+                            className="px-4 py-2 rounded-full outline-none flex-1" 
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                        />
+                        <button onClick={handleSearch} className="bg-black text-white rounded-r-full px-4 py-2 ">Search</button>
                     </div>
-                    <button className="xl:hidden flex flex-row items-center gap-4">
+                    <button className="xl:hidden flex flex-row items-center gap-4" onClick={() => setShowSearchInput(!showSearchInput)}>
                         <FiSearch alt="search-icon" className="size-[1.5rem] sm:size-[2rem]"/>
                     </button>
                     <button onClick={navToDashboardPage} className="flex flex-row items-center gap-4">
@@ -111,6 +125,20 @@ const Header = () => {
                     </button>
                 </div>
             </div>
+            
+            {showSearchInput && (
+                <div className="flex flex-row items-center justify-center py-2 px-6 xl:px-10 bg-grey">
+                    <input 
+                        type="search" 
+                        name="search" 
+                        placeholder="Search" 
+                        className="px-4 py-2 rounded-full outline-none flex-1 bg-white" 
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                    <button onClick={handleSearch} className="bg-black text-white rounded-full px-4 py-2 ml-2">Search</button>
+                </div>
+            )}
             <div className="flex flex-col justify-center items-center bg-grey py-2">
                     <h3 className="text-sm">Teachers & Students Get 10% Off</h3>
                     <a href="" className="underline font-medium text-sm">Learn More</a>
