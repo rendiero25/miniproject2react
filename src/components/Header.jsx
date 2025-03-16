@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import LogoNike from "../assets/icons/nikelogo.svg";
 import JordanIcon from '../assets/icons/jordan.svg';
@@ -34,6 +34,10 @@ const Header = () => {
 
     const navToHomePage = () => {
         navigate('/index');
+    }
+
+    const navToCart = () => {
+        navigate('/cart');
     }
 
     const handleSearch = () => {
@@ -117,8 +121,8 @@ const Header = () => {
                     <button onClick={navToDashboardPage} className="flex flex-row items-center gap-4">
                         <a href=""><FiUser alt="user-icon" className="size-[1.4rem] sm:size-[1.5rem]"/></a>
                     </button>
-                    <button className="flex flex-row items-center gap-4">
-                        <FiShoppingBag alt="bag-icon" className="size-[1.5rem] sm:size-[1.5rem]"/>
+                    <button onClick={navToCart} className="flex flex-row items-center gap-4">
+                        <a href=""><FiShoppingBag alt="bag-icon" className="size-[1.5rem] sm:size-[1.5rem]"/></a>
                     </button>
                     <button onClick={handleShowMenu} className="xl:hidden w-auto h-auto">
                         <FiMenu className="size-[1.5rem] sm:size-[2rem]"/>

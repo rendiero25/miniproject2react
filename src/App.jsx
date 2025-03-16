@@ -11,6 +11,7 @@ import Sale from "./pages/Sale.jsx";
 import Snkrs from "./pages/Snkrs.jsx";
 import ProductDetails from "./pages/ProductDetails.jsx";
 import DetailsUser from "./pages/DetailsUser.jsx";
+import Cart from "./pages/Cart.jsx";
 
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
@@ -36,6 +37,7 @@ const App = () => {
         <Route path="/snkrs" element={<Snkrs />} />
         <Route path="/product-details" element={<ProductDetails />} />
         <Route path="/details-user/:id" element={<DetailsUser />} />
+        <Route path="/cart" element={<Cart />} /> 
       </Routes>
     </BrowserRouter>
   )

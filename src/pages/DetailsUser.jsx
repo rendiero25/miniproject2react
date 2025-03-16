@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -47,11 +47,16 @@ const DetailsUser = () => {
         <section>
             <Header />
 
+            <div className="w-full px-6 xl:px-10 mt-4">
+                <nav className="text-sm text-gray-600">
+                    <Link to="/index" className="hover:underline">Home</Link> / <Link to="/dashboard" className="hover:underline">Dashboard</Link> / <span className="text-gray-500">Details User</span>
+                </nav>
+            </div>
+
             <div className="flex flex-col justify-center items-center">
                 <div className="flex flex-row items-center mt-6 self-start px-6 gap-2">
                     <a href="" onClick={handleBack}><IoArrowBack /></a>
                     <a href="" onClick={handleBack} className="font-medium">Back</a>
-                    {/* <a href=""><button onClick={handleBack} className="font-medium">Back</button></a> */}
                 </div>
                 
                 <div className="flex w-full px-6 mt-6 mb-12">

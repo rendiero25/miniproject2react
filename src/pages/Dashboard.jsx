@@ -77,6 +77,13 @@ const Dashboard = () => {
     return(
         <section>
             <Header />
+            
+            <div className="w-full px-6 xl:px-10 mt-4">
+                <nav className="text-sm text-gray-600">
+                    <Link to="/index" className="hover:underline">Home</Link> / <span className="text-gray-500">Dashboard</span>
+                </nav>
+            </div>
+
             <div className="flex flex-col justify-center items-center gap-4 mt-4">
                 <div className="flex flex-row gap-4 w-full justify-center items-center py-2 px-4">
                     <button 

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -57,6 +57,12 @@ const Register = () => {
             <div className='flex flex-col min-h-screen w-full'>
                 <Header />
 
+                {/* <div className="w-full px-6 xl:px-10 mt-4">
+                    <nav className="text-sm text-gray-600">
+                        <Link to="/index" className="hover:underline">Home</Link> / <span className="text-gray-500">Register</span>
+                    </nav>
+                </div> */}
+
                 <div className='flex flex-col justify-center items-center gap-8 p-8 sm:px-26'>
                     <img src={LogoNike} alt="logo-nike" />
                     <h2 className="font-bold text-4xl 2xl:text-6xl text-center max-w-xl">BECOME A NIKE MEMBER</h2>
@@ -70,7 +76,7 @@ const Register = () => {
                             By creating an account, you agree to Nike's <span><a href="#" className='underline font-semibold'>Privacy Policy </a></span>
                             and <span><a href="#" className='underline font-semibold'>Terms of Use.</a></span>
                         </p>
-                        <button onClick={handleSubmitRegister} type="submit" className='mt-10 bg-black focus:bg-red-500 text-white w-full py-4 rounded-lg'>JOIN US</button>
+                        <button onClick={handleSubmitRegister} type="submit" className='mt-10 bg-black focus:bg-white focus:border-2 text-white focus:text-black w-full py-4 rounded-lg'>JOIN US</button>
                         <p className='font-normal text-gray-500 text-lg'>Already a Member? <span><a onClick={navToSiginPage} href="" className='underline text-black'>Sign In</a></span></p>
                     </div>
                 </div>

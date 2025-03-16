@@ -9,9 +9,9 @@ const TheEssentials = () => {
 
     const navigate = useNavigate();
 
-    const toMensProduct = () => {navigate('./men')};
-    const toWomensProduct = () => {navigate('./women')};
-    const toKidsProduct = () => {navigate('./kids')};
+    const toMensProduct = () => {navigate('/men')};
+    const toWomensProduct = () => {navigate('/women')};
+    const toKidsProduct = () => {navigate('/kids')};
 
     return(
         <section className="flex flex-col justify-center items-center gap-4 px-6 xl:px-12">
