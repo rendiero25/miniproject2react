@@ -1,4 +1,4 @@
-import Index from "./pages/index.jsx";
+import Index from "./pages/Index.jsx";
 import Login from "./pages/Login.jsx";
 import Register from './pages/Register.jsx';
 import Dashboard from "./pages/Dashboard.jsx";
